@@ -1,0 +1,2 @@
+controlador.CristoMessengerCliente
+controlador.ClienteThread
