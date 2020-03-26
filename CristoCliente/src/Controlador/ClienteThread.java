@@ -21,7 +21,7 @@ import javax.swing.JFrame;
 public class ClienteThread  extends Thread {
     String name, mandamosServer, contrasena, ip;
     int puerto;
-    String server;
+    String cadenaIn;
     UsuarioCorrecto uC;
  
     public ClienteThread(String usuario, String contrasena, String mandamosServer, int puerto, String ip, JFrame aThis) {
@@ -51,8 +51,8 @@ public class ClienteThread  extends Thread {
                 System.out.println("Client encia : " + mandamosServer);
 
                 out.println(mandamosServer);
-                server = in.readLine();
-                System.out.println("Que me devuelve el server  = " + server);
+                cadenaIn = in.readLine();
+                System.out.println("Que me devuelve el server  = " + cadenaIn);
 
             } catch (UnknownHostException e) {
                 //si no se apodido conectar mando este mensaje

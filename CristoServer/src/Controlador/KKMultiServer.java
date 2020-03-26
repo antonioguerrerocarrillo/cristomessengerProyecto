@@ -10,7 +10,6 @@ import java.net.ServerSocket;
 import java.util.ArrayList;
 
 /**
- *
  * @author cuvil
  */
 public class KKMultiServer extends Thread{

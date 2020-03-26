@@ -32,4 +32,8 @@ public class UserControler {
         
         return encontrado;
     }
+
+    void traerAmigosLogin(String login) {
+        
+    }
 }
