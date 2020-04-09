@@ -70,8 +70,11 @@ public class User {
         return state;
     }
 
-    public void setState(int state) {
-        this.state = state;
+    public void setState(String d) {
+        if(d.equals("1"))
+            this.state = 1;
+        else
+            this.state = 0;
     }
     public void printuser(User a){
          System.out.println("\t" + a.getId_user() + "\t" + a.getName() + "  " + a.getPassword() + "  " + a.getSurname1()+ "  " + a.getSurname2() + "  " + a.getPhoto() + "  " + a.getState());

@@ -59,7 +59,7 @@ public class InterfazCliente extends javax.swing.JFrame {
 
         jLabel2.setText("ip");
 
-        jTextField2.setText("192.168.1.80");
+        jTextField2.setText("192.168.1.79");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);

@@ -21,29 +21,29 @@ class ProtocoloServer {
     UserControler userC;
     int amigosUserConectado;
     ArrayList<User> usuarioSistema;
-    ArrayList<Friend> amigoSistema;
+    ArrayList<Friend> amigosSistema;
     FriendControler friendControler;
+    int totalFriend;
     
     public ProtocoloServer(){
     
         userC = new UserControler();
         usuarioSistema = new ArrayList();
-        amigoSistema = new ArrayList();
-        
+        amigosSistema = new ArrayList();
+        friendControler = new FriendControler();
     
     }
      public String cadenaAlmacenaje(){
         
-         String cadenaAlmacenaje = "";
-          amigosUserConectado = 0; 
-          
-            for(int i = 0; i < amigoSistema.size();i++ ){
-                if(amigoSistema.get(i).getId_user_orig().equals(login)){
-                //    System.out.println("@DEBUF :: Imprimimos..++++" +amigosSistema.get(i).getId_user_orig());
-                    amigosUserConectado++;
+           String cadenaAlmacenaje = "";
+          totalFriend = 0; 
+            for(int i = 0; i < amigosSistema.size();i++ ){
+                if(amigosSistema.get(i).getId_user_orig().equals(login)){
+              
+                    totalFriend++;
                      for(int u = 0; u < usuarioSistema.size();u++ ){
 
-                         if(amigoSistema.get(i).getId_user_dest().equals(usuarioSistema.get(u).getId_user())){
+                         if(amigosSistema.get(i).getId_user_dest().equals(usuarioSistema.get(u).getId_user())){
                             //   System.out.println("@ DEBUG : Amigos que tiene"+usuariosSistema.get(u).getId_user());
                              cadenaAlmacenaje +=  "#" + usuarioSistema.get(u).getId_user();
                             if(usuarioSistema.get(u).getState() == 1){
@@ -64,14 +64,15 @@ class ProtocoloServer {
        if(inputLine.contains("PROTOCOLCRISTOMESSENGER1.0#") && inputLine.contains("#CLIENT#LOGIN")){
            login = arrayCadena[4];
            passwd = arrayCadena[5];
-           boolean encontrado = userC.comprobarUsuario(login, passwd);
+           boolean encontrado = userC.comprobarUsuario(login, passwd,usuarioSistema);
            
            if(encontrado){
-              friendControler.getAmigos(amigoSistema,login);
-              userC.traerAmigosLogin(login);
-              devolverCadenaHebra = "PROTOCOLCRISTOMESSENGER1.0#SERVER#";
+              friendControler.getAmigos(amigosSistema,login);
+              String devolverCadenaEstado = cadenaAlmacenaje();
+              devolverCadenaHebra = "PROTOCOLCRISTOMESSENGER1.0#SERVER#LOGIN_CORRECT#"+login+"#FRIENDS#"+totalFriend+devolverCadenaEstado;
               
            }else{
+               System.out.println("entra aki tio");
                devolverCadenaHebra = "PROTOCOLCRISTOMESSENGER1.0#SERVER#ERROR#BAD_LOGIN";
            }
        }

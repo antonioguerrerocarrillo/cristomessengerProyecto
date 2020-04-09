@@ -6,7 +6,16 @@
 package Clases;
 
 /**
- *
+ *Hola:
+Participe en la videollamada haciendo clic en el siguiente vínculo:
+https://go.teamviewer.com/v15/m02358428
+ID de la reunión: m023-584-28
+
+
+Saludos,
+Antonio cuvi
+
+www.teamviewer.com - Reúnase en línea y comparta pantalla fácilmente
  * @author cuvil
  */
 public class Friend {
@@ -37,7 +46,7 @@ public class Friend {
         this.accept_request = accept_request;
     }*/
 
-      public void printfriend(Friend a){
+    public void printfriend(Friend a){
          System.out.println("\t" + a.getId_user_orig() + a.getId_user_dest() + "\t" + a.getAccept_request());
     }
 

@@ -20,8 +20,11 @@ public class FriendControler {
     public FriendControler(FriendModel fModelo) {
         this.fModelo = fModelo;
     }
+    public FriendControler(){
     
+        this.fModelo = new FriendModel();
     
+    }
     void getAmigos(ArrayList<Friend> amigoSistema, String login) throws SQLException {
        fModelo.getAmigos(amigoSistema,login);
     }

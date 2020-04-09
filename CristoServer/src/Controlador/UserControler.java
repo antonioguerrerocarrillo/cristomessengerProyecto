@@ -5,8 +5,10 @@
  */
 package Controlador;
 
+import Clases.User;
 import Modelo.UsuarioModelo;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -24,12 +26,12 @@ public class UserControler {
     
     
     
-    public boolean comprobarUsuario(String login,String passwd) throws SQLException{
+    public boolean comprobarUsuario(String login,String passwd,ArrayList<User>userSistema ) throws SQLException{
     
         boolean encontrado = false;
         
         encontrado = userM.comprobarUsuario(login,passwd);
-        
+        userM.getUsuariosTotales(userSistema);
         return encontrado;
     }
 

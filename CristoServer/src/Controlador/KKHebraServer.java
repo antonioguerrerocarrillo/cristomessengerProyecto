@@ -53,7 +53,7 @@ class KKHebraServer extends Thread{
             }
             if(outputLine.contains("#BAD_LOGIN")){
                     System.out.println("bad login " + outputLine);
-                    
+                     out.println(outputLine); 
             }
         } catch (IOException e) {
         }   catch (SQLException ex) {
